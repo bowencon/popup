@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit" />
+<title>popup.js弹窗测试</title>
+<style type="text/css">
+body{background:#9ee1fc url(cloud_bg.png) 0 100% repeat-x;min-height:578px;-webkit-animation:animate-cloud 20s linear infinite; -moz-animation:animate-cloud 20s linear infinite; -ms-animation:animate-cloud 20s linear infinite; -o-animation:animate-cloud 20s linear infinite; animation:animate-cloud 20s linear infinite;}
+@-webkit-keyframes animate-cloud{from{background-position:600px 100%;}to{background-position:0 100%;}}
+@-moz-keyframes animate-cloud{from{background-position:600px 100%;}to{ background-position:0 100%;}}
+@-ms-keyframes animate-cloud{from{background-position:600px 100%;}to{background-position:0 100%;}}
+@-o-keyframes animate-cloud{from{background-position:600px 100%;}to{ background-position:0 100%;}}
+@keyframes animate-cloud{from{background-position:600px 100%;}to{ background-position:0 100%;}}
+.btn{display:inline-block;width:97px;height:30px;font:14px/30px 'Simsun';color:#e9edfc;background:#53c442; border:none;border-radius:2px;box-shadow:0 3px 10px #99b;margin:0 10px;padding:2px;text-align:center;cursor:pointer;}
+.btn:hover{color:#fff;}
+.main_iframe{width:400px;height:300px;border:1px solid purple;position:absolute;top:0;right:0;}
+</style>
+<!--<link href="css/popup.css" rel="stylesheet" type="text/css" />-->
+</head>
+<body>
+<br/><br/>
+<input type="button" value="点击" class="btn" onclick="popup('360','236','标题','iframe.html')" />
+<br/><br/>
+<a href="javascript:popup('700','400','标题','iframe.html');void(0);" class="btn">点击弹窗</a>
+<br/><br/>
+<div class="main_iframe">
+	<iframe src="test-iframe.html" scrolling="auto" frameborder="0" name="mainFrame" class="main_iframe" allowtransparency="true"></iframe>
+</div>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="popup/popup.js" charset="utf-8"></script>
+<script type="text/javascript">
+$(function(){
+	//body高度
+	$("body").css({height:$(window).height()+'px'});
+	$(window).on("resize",function(){
+		$("body").css({height:$(window).height()+'px'});
+	});
+	
+	//API调用示例:	   
+	/*
+	<a href="javascript:void(0);" onclick="popup()">点击</a>
+	<a href="javascript:;" onclick="popup()">点击</a>
+	<a href="#" onclick="popup();return false;">点击</a>
+	*/	   
+    popup('500','300','标题','iframe.html');
+
+});
+</script>
+</body>
+</html>
