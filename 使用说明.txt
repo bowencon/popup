@@ -1,0 +1,36 @@
+本插件依赖jQuery库
+直接复制popup文件夹内容到项目内 引用popup.js
+<script type="text/javascript" src="popup.js" charset="utf-8"></script>
+
+//API调用示例1 test.html:	
+<input type="button" value="点击" onclick="popup('360','220','标题','iframe.html')" />
+
+<a href="javascript:;" onclick="popup('700','400','标题','iframe.html')">点击弹窗</a>
+或者
+<a href="javascript:popup('700','400','标题','iframe.html');void(0);">点击弹窗</a>
+
+注:
+若需要在iframe的页面框架下全屏弹窗遮罩 需嵌入的test-iframe页面引用 popup-parent.js 
+
+测试页面test.html:
+<script type="text/javascript" src="js/popup/popup.js" charset="utf-8"></script>
+
+嵌入的test-iframe页面
+<script type="text/javascript" src="js/popup/popup-parent.js" charset="utf-8"></script>
+
+
+
+//API调用示例2 index.html:	
+<script type="text/javascript" src="js/popup/bounced.js" charset="utf-8"></script>
+<script type="text/javascript">
+$(function(){
+   //点击按钮弹窗
+   $(".btn").bounced({
+	   width:450,
+	   height:288,
+	   title:'提示',
+	   url:'iframe.html'
+   });
+	
+});
+</script>
